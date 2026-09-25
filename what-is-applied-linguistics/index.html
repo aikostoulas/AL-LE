@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is applied linguistics? A workbench for language teachers</title>
+<style>
+:root{
+  --ink:#1E2833; --muted:#5A6673; --paper:#F6F7F4; --sheet:#FFFFFF;
+  --line:#D5DAD3; --accent:#2E6B5E; --accent-soft:#E2EEEA; --warn:#9A6B17; --warn-soft:#F5ECDA;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E6EAE6; --muted:#A3ADB5; --paper:#161C21; --sheet:#1F272E;
+    --line:#34404A; --accent:#7CC0AE; --accent-soft:#233A35; --warn:#E0B660; --warn-soft:#3A3122;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E6EAE6; --muted:#A3ADB5; --paper:#161C21; --sheet:#1F272E;
+  --line:#34404A; --accent:#7CC0AE; --accent-soft:#233A35; --warn:#E0B660; --warn-soft:#3A3122;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.55 var(--sans)}
+header{padding:2rem 1.25rem 1rem;max-width:46rem;margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);margin:0 0 .5rem}
+h2{font-size:1.45rem;margin:0 0 .4rem}
+h3{font-size:1.05rem;margin:1.2rem 0 .3rem}
+p{margin:.4rem 0 .8rem}
+.lede{color:var(--muted);max-width:38rem}
+.privacy{border-left:3px solid var(--accent);background:var(--accent-soft);padding:.6rem .8rem;margin-top:1rem;font-size:.92rem}
+.attribution{font-size:.92rem;margin:.2rem 0 .6rem}
+.attribution a{color:var(--accent);text-underline-offset:2px}
+footer{max-width:46rem;margin:0 auto;padding:1.25rem 1rem 2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;text-align:center}
+main{padding-bottom:2rem !important}
+.elements{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 0;padding:0;list-style:none}
+.elements li{font-size:.85rem;border:1px solid var(--line);border-radius:999px;padding:.2rem .7rem;background:var(--sheet)}
+nav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav ol{display:flex;gap:.25rem;overflow-x:auto;margin:0 auto;padding:.5rem 1rem;max-width:46rem;list-style:none}
+nav button{font:inherit;font-size:.9rem;white-space:nowrap;border:1px solid transparent;background:none;color:var(--muted);padding:.35rem .7rem;border-radius:6px;cursor:pointer}
+nav button[aria-current="true"]{color:var(--ink);border-color:var(--line);background:var(--sheet);font-weight:600}
+main{max-width:46rem;margin:0 auto;padding:1.25rem 1rem 4rem}
+section{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:1.25rem}
+section[hidden]{display:none}
+.src{font-size:.85rem;color:var(--muted)}
+blockquote{margin:.8rem 0;padding:.7rem 1rem;border-left:3px solid var(--line);font-family:var(--serif);font-size:1.1rem}
+label{display:block;font-weight:600;font-size:.95rem;margin:1rem 0 .3rem}
+.hint{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+textarea,input[type=text],select{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.55rem .65rem}
+textarea{min-height:5.5rem;resize:vertical}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.case{border-top:1px solid var(--line);padding-top:.9rem;margin-top:1rem}
+.case p{font-family:var(--serif);font-size:1.05rem;margin:0}
+.scale{display:grid;grid-template-columns:auto 1fr auto;gap:.6rem;align-items:center;font-size:.8rem;color:var(--muted);margin-top:.5rem}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.prompt{background:var(--warn-soft);border-left:3px solid var(--warn);padding:.55rem .8rem;font-size:.92rem;margin-top:.6rem}
+.prompt[hidden]{display:none}
+.history{display:grid;gap:.6rem;margin:.8rem 0}
+.history div{border:1px dashed var(--line);border-radius:8px;padding:.6rem .8rem;font-size:.93rem}
+.history strong{font-family:var(--serif)}
+fieldset{border:0;padding:0;margin:1rem 0 0}
+legend{font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+.checks label,.radios label{font-weight:400;display:flex;gap:.5rem;align-items:flex-start;margin:.25rem 0}
+.row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem}
+.btn{font:inherit;border-radius:6px;padding:.55rem 1rem;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--sheet)}
+.btn.ghost{background:none;color:var(--accent)}
+.btn.danger{background:none;color:var(--warn);border-color:var(--warn)}
+#portfolio{min-height:18rem;font-size:.9rem}
+.status{font-size:.9rem;color:var(--accent);min-height:1.4em}
+@media (prefers-reduced-motion:no-preference){section{animation:in .18s ease-out}@keyframes in{from{opacity:.4}to{opacity:1}}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>What is applied linguistics?</h1>
+  <p class="lede">Six activities based on Achilleas Kostoulas's blog post of the same name. Work through them in any order, then collect your answers at the end.</p>
+  <p class="attribution">Based on: Kostoulas, A. (2018, revised 2026). <a href="https://achilleaskostoulas.com/2018/05/10/what-is-applied-linguistics/" target="_blank" rel="noopener"><cite>What is applied linguistics?</cite></a> Read the post before you start.</p>
+  <ul class="elements" aria-label="The four elements discussed in the post">
+    <li>The centrality of language</li><li>Relevance to the real world</li><li>Empirical methods</li><li>The role of theory</li>
+  </ul>
+  <p class="privacy"><strong>Nothing you type is saved or sent anywhere.</strong> Your answers stay in this browser tab and disappear when you close or reload it. Use "Your work" to copy them before you leave.</p>
+</header>
+
+<nav aria-label="Activities"><ol id="tabs"></ol></nav>
+
+<main>
+
+<section data-title="Rewrite Brumfit">
+  <h2>Rewrite the definition</h2>
+  <p>The post starts from Chris Brumfit's definition of applied linguistics:</p>
+  <blockquote>"the theoretical and empirical investigation of real-world problems in which language is a central issue"<br><span class="src">Brumfit, 1995, p. 27</span></blockquote>
+  <p>The author is not keen on the word "problem", because linguistic knowledge applies to many situations that are not problematic. Do you agree?</p>
+  <label for="b1">What word would you put instead of "problem"?</label>
+  <input type="text" id="b1" data-q="Replacement for 'problem'">
+  <label for="b2">Write your own definition <span class="hint">Keep what you think is worth keeping.</span></label>
+  <textarea id="b2" data-q="My definition"></textarea>
+  <h3>Test it against the four elements</h3>
+  <label for="b3">Does it keep language at the centre?</label><textarea id="b3" data-q="Language at the centre?"></textarea>
+  <label for="b4">Does it connect to the real world?</label><textarea id="b4" data-q="Real-world relevance?"></textarea>
+  <label for="b5">Does it involve evidence from real-world experience?</label><textarea id="b5" data-q="Empirical dimension?"></textarea>
+  <label for="b6">Does it link explanation to teaching practice?</label><textarea id="b6" data-q="Theory and practice?"></textarea>
+</section>
+
+<section data-title="Where is the boundary?" hidden>
+  <h2>Where is the boundary?</h2>
+  <p>The post notes that applied linguistics overlaps with classroom management, education policy, work on inequality, and the psychology of teachers and learners. Place each study on the scale and explain your choice.</p>
+  <div id="cases"></div>
+</section>
+
+<section data-title="So what? Now what?" hidden>
+  <h2>So what? Now what?</h2>
+  <p>The post describes applied linguistics as answering two questions about linguistic insights: "so what?" and "now what?". It gives two historical examples of ideas about language shaping teaching.</p>
+  <div class="history">
+    <div><strong>Structural linguistics</strong> → the Audiolingual Method</div>
+    <div><strong>Notional/functional descriptions of language</strong> → communicative language teaching</div>
+  </div>
+  <p>Now apply the same reasoning to something teachers are being encouraged to use today, such as a learning app, a new method, or a coursebook.</p>
+  <label for="s1">What are you appraising?</label><input type="text" id="s1" data-q="What I am appraising">
+  <label for="s2">What view of language does it assume? <span class="hint">For example: language as a set of structures, as functions, as vocabulary lists.</span></label><textarea id="s2" data-q="View of language it assumes"></textarea>
+  <label for="s3">What view of learning does it assume?</label><textarea id="s3" data-q="View of learning it assumes"></textarea>
+  <label for="s4">So what? Is that view coherent with what you know about language?</label><textarea id="s4" data-q="So what?"></textarea>
+  <label for="s5">Now what? What will you do in your classroom?</label><textarea id="s5" data-q="Now what?"></textarea>
+</section>
+
+<section data-title="Answer a lay theory" hidden>
+  <h2>Answer a lay theory</h2>
+  <p>Everyone uses language, so everyone has intuitions about how it is learnt. The post lists some beliefs that teachers regularly meet.</p>
+  <fieldset class="radios"><legend>Choose one</legend><div id="beliefs"></div></fieldset>
+  <label for="l1">Where have you met this belief? <span class="hint">A parent, a colleague, a policy text, a newspaper, a form…</span></label><textarea id="l1" data-q="Where I met it"></textarea>
+  <label for="l2">Who are you replying to?</label>
+  <select id="l2" data-q="Audience"><option value="">Choose an audience</option><option>A parent</option><option>A colleague</option><option>A head teacher or policymaker</option><option>The general public</option></select>
+  <label for="l3">Write your reply <span class="hint">Aim for something you could actually say or send.</span></label><textarea id="l3" data-q="My reply" style="min-height:9rem"></textarea>
+  <fieldset class="checks"><legend>What does your reply draw on?</legend>
+    <label><input type="checkbox" data-group="Draws on" value="Evidence from real-world data"> Evidence from real-world data</label>
+    <label><input type="checkbox" data-group="Draws on" value="A coherent explanation of how languages are learnt"> A coherent explanation of how languages are learnt</label>
+    <label><input type="checkbox" data-group="Draws on" value="Something specific to language, not learning in general"> Something specific to language, not learning in general</label>
+    <label><input type="checkbox" data-group="Draws on" value="Consequences for teaching practice"> Consequences for teaching practice</label>
+  </fieldset>
+</section>
+
+<section data-title="Challenge a given" hidden>
+  <h2>Challenge a given</h2>
+  <p>The post argues that empirical work does not need to be ambitious. What matters is a commitment to using facts and a willingness to challenge "givens", using the resources a teacher already has.</p>
+  <label for="c1">What do people in your school take for granted about language learning?</label><textarea id="c1" data-q="The given"></textarea>
+  <label for="c2">What could you observe or collect to test it, with the time and tools you have?</label><textarea id="c2" data-q="Data I could collect"></textarea>
+  <label for="c3">What result would make you change your mind?</label><textarea id="c3" data-q="What would change my mind"></textarea>
+  <label for="c4">What would you do differently depending on the result?</label><textarea id="c4" data-q="What I would do next"></textarea>
+</section>
+
+<section data-title="Do teachers need theory?" hidden>
+  <h2>Do teachers need theory?</h2>
+  <p>Péter Medgyes has argued that one can be a very good language teacher without knowing much about research, theory or applied linguistics. The post grants that this has some merit, but raises two problems with it: it limits teachers' understanding of their context, and it leaves them exposed to lay theories.</p>
+  <fieldset class="radios"><legend>Which position will you argue?</legend>
+    <label><input type="radio" name="side" data-q="Position" value="Good teaching does not require theory"> Good teaching does not require theory</label>
+    <label><input type="radio" name="side" data-q="Position" value="Teachers need applied linguistics"> Teachers need applied linguistics</label>
+  </fieldset>
+  <label for="d1">Make your case</label><textarea id="d1" data-q="My case" style="min-height:8rem"></textarea>
+  <label for="d2">What is the strongest point on the other side?</label><textarea id="d2" data-q="Strongest opposing point"></textarea>
+  <label for="d3">What will you concede?</label><textarea id="d3" data-q="What I concede"></textarea>
+</section>
+
+<section data-title="Your work" hidden>
+  <h2>Your work</h2>
+  <p>Everything you have written, in one place. Copy it into your course forum, a document or an email. If you are working with a group, share it there so others can challenge your answers.</p>
+  <label for="pname">Your name <span class="hint">Added to the top of your work and to the PDF. It is not saved anywhere either.</span></label>
+  <input type="text" id="pname" autocomplete="name">
+  <label for="portfolio">Your answers</label>
+  <textarea id="portfolio" readonly aria-label="All your answers"></textarea>
+  <div class="row">
+    <button class="btn" id="pdf">Save as PDF</button>
+    <button class="btn ghost" id="copy">Copy all</button>
+    <button class="btn danger" id="clear">Clear everything</button>
+  </div>
+  <p class="status" id="status" role="status"></p>
+</section>
+
+</main>
+
+<footer>© 2026 Achilleas Kostoulas | Applied Linguistics &amp; Language Teacher Education</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.10/build/pdfmake.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.10/build/vfs_fonts.js"></script>
+<script>
+const POST_URL="https://achilleaskostoulas.com/2018/05/10/what-is-applied-linguistics/";
+const sections=[...document.querySelectorAll('main section')];
+const tabs=document.getElementById('tabs');
+sections.forEach((s,i)=>{
+  const li=document.createElement('li'),b=document.createElement('button');
+  b.textContent=s.dataset.title; b.type='button';
+  b.onclick=()=>show(i); li.appendChild(b); tabs.appendChild(li);
+});
+function show(i){
+  sections.forEach((s,j)=>s.hidden=j!==i);
+  [...tabs.querySelectorAll('button')].forEach((b,j)=>b.setAttribute('aria-current',j===i));
+  if(i===sections.length-1) compile();
+  sections[i].querySelector('h2').setAttribute('tabindex','-1');
+  window.scrollTo({top:document.querySelector('nav').offsetTop});
+}
+
+const cases=[
+  "A study of how primary teachers keep order during noisy group activities.",
+  "A study of which kinds of feedback on pronunciation errors help learners improve.",
+  "A study of the anxiety learners feel when they have to speak English in front of classmates.",
+  "An analysis of how many curriculum hours a national policy gives to foreign languages.",
+  "A study of which pupils stay silent in group work, and whether their home language plays a part.",
+  "A comparison of teacher burnout across different school subjects."
+];
+const labels=["Not applied linguistics","Mostly general education","Could go either way","Mostly applied linguistics","Clearly applied linguistics"];
+const box=document.getElementById('cases');
+cases.forEach((c,i)=>{
+  const d=document.createElement('div'); d.className='case';
+  d.innerHTML=`<p>${c}</p>
+  <div class="scale"><span>General education</span><input type="range" min="0" max="4" value="2" id="r${i}" aria-label="Placement for study ${i+1}"><span>Applied linguistics</span></div>
+  <div class="src" id="rl${i}">${labels[2]}</div>
+  <label for="j${i}">Why?</label><textarea id="j${i}"></textarea>
+  <div class="prompt" id="p${i}" hidden>Check your reasoning against the post: does this work show how its findings are particular to <em>language</em> teaching and learning, rather than teaching and learning in general? If not, what would it need to add?</div>`;
+  box.appendChild(d);
+  const r=d.querySelector('input'),t=d.querySelector('textarea'),p=d.querySelector('.prompt');
+  r.oninput=()=>{document.getElementById('rl'+i).textContent=labels[r.value];r.dataset.touched=1};
+  t.oninput=()=>{p.hidden=t.value.trim().length<15};
+});
+
+const beliefs=[
+  "Learning a second language too early leads to confusion.",
+  "Talking in class and playing games is a cop-out; real teachers teach and test grammar.",
+  "Some children are just not clever enough to learn languages.",
+  "Language standards have been declining since emoji and text messaging.",
+  "When it comes to learning English, the earlier the better.",
+  "Teaching should match each pupil's learning style."
+];
+const bl=document.getElementById('beliefs');
+beliefs.forEach(b=>{
+  const l=document.createElement('label');
+  l.innerHTML=`<input type="radio" name="belief" data-q="Belief" value="${b}"> ${b}`;
+  bl.appendChild(l);
+});
+
+function val(id){const e=document.getElementById(id);return e&&e.value.trim()}
+function collect(){
+  const out=[];
+  sections.slice(0,-1).forEach((s,i)=>{
+    const items=[];
+    if(i===1){
+      cases.forEach((c,k)=>{
+        const r=document.getElementById('r'+k),j=val('j'+k);
+        if(r.dataset.touched||j) items.push({q:c,a:`Placement: ${labels[r.value]}`+(j?`\nWhy: ${j}`:'')});
+      });
+    }
+    s.querySelectorAll('[data-q]').forEach(e=>{
+      if(e.type==='radio'){ if(e.checked) items.push({q:e.dataset.q,a:e.value}); }
+      else if(e.value.trim()) items.push({q:e.dataset.q,a:e.value.trim()});
+    });
+    const ticks=[...s.querySelectorAll('input[type=checkbox]:checked')].map(e=>e.value);
+    if(ticks.length) items.push({q:'Draws on',a:ticks.join('; ')});
+    if(items.length) out.push({title:s.dataset.title,items});
+  });
+  return out;
+}
+function compile(){
+  const data=collect(),name=val('pname');
+  document.getElementById('portfolio').value=data.length
+    ? `What is applied linguistics? My responses${name?`\nName: ${name}`:''}\n\n`+
+      data.map(d=>`${d.title.toUpperCase()}\n\n`+d.items.map(it=>`${it.q}\n${it.a}`).join('\n\n')).join('\n\n----------\n\n')
+    : 'You have not written anything yet. Choose an activity above to begin.';
+  return data;
+}
+document.getElementById('pname').addEventListener('input',compile);
+
+document.getElementById('pdf').onclick=async()=>{
+  const st=document.getElementById('status'),data=compile(),name=val('pname');
+  if(!data.length){st.textContent='Write something in at least one activity before saving a PDF.';return}
+  if(!window.pdfMake){st.textContent='The PDF tool did not load. Check your connection and reload, or use Copy all instead.';return}
+  const today=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  const content=[
+    {text:'What is applied linguistics?',style:'h1'},
+    {text:'My responses',style:'sub'},
+    {text:[name?`Name: ${name}\n`:'',`Date: ${today}`],margin:[0,6,0,4]},
+    {text:['Based on: Kostoulas, A. (2018, revised 2026). ',{text:'What is applied linguistics?',italics:true,link:POST_URL,color:'#2E6B5E'}],fontSize:9,color:'#5A6673',margin:[0,0,0,14]}
+  ];
+  data.forEach(d=>{
+    content.push({text:d.title,style:'h2'});
+    d.items.forEach(it=>content.push({text:it.q,style:'q'},{text:it.a,margin:[0,0,0,8]}));
+  });
+  const doc={
+    content,pageMargins:[50,50,50,60],
+    defaultStyle:{font:'Roboto',fontSize:10.5,lineHeight:1.25},
+    styles:{h1:{fontSize:20,bold:true},sub:{fontSize:12,color:'#5A6673'},h2:{fontSize:14,bold:true,color:'#2E6B5E',margin:[0,14,0,6]},q:{bold:true,fontSize:10}},
+    footer:(page,pages)=>({columns:[{text:'\u00A9 2026 Achilleas Kostoulas | Applied Linguistics & Language Teacher Education',fontSize:8,color:'#5A6673'},{text:`${page} / ${pages}`,alignment:'right',fontSize:8,color:'#5A6673'}],margin:[50,20,50,0]})
+  };
+  const safe=(name||'my-responses').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
+  const filename=`applied-linguistics-${safe}.pdf`;
+  st.textContent='Preparing your PDF…';
+  let downloads=null;
+  if(window.claude&&typeof claude.use==='function'){try{downloads=await claude.use('downloads')}catch(e){}}
+  pdfMake.createPdf(doc).getBlob(async blob=>{
+    if(downloads){
+      try{await downloads.save({filename,data:blob});st.textContent='PDF saved.'}
+      catch(e){st.textContent=e&&e.code==='declined'?'PDF not saved.':'This view cannot save files. Use Copy all instead.'}
+    }else{
+      const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;
+      document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+      st.textContent='PDF saved.';
+    }
+  });
+};
+document.getElementById('copy').onclick=async()=>{
+  const t=document.getElementById('portfolio'),st=document.getElementById('status');
+  try{await navigator.clipboard.writeText(t.value);st.textContent='Copied. Paste it wherever you need it.'}
+  catch(e){t.focus();t.select();st.textContent='Your text is selected. Copy it with your device\u2019s copy command.'}
+};
+document.getElementById('clear').onclick=()=>{
+  if(!confirm('Clear all your answers? This cannot be undone.'))return;
+  document.querySelectorAll('main textarea:not([readonly]),main input[type=text]').forEach(e=>e.value='');
+  document.querySelectorAll('main input[type=radio],main input[type=checkbox]').forEach(e=>e.checked=false);
+  document.querySelectorAll('main select').forEach(e=>e.selectedIndex=0);
+  document.querySelectorAll('input[type=range]').forEach((r,i)=>{r.value=2;delete r.dataset.touched;document.getElementById('rl'+i).textContent=labels[2]});
+  document.querySelectorAll('.prompt').forEach(p=>p.hidden=true);
+  compile(); document.getElementById('status').textContent='All answers cleared.';
+};
+show(0);
+</script>
+</body>
+</html>

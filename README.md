@@ -1,10 +1,24 @@
-# What is applied linguistics? A workbench for language teachers
+# Applied Linguistics for Language Education
 
-Six online activities for language teacher education, based on the blog post
-[What is applied linguistics?](https://achilleaskostoulas.com/2018/05/10/what-is-applied-linguistics/)
-by Achilleas Kostoulas.
+Open teaching resources for language teacher education, by Achilleas Kostoulas. Each resource is a self-contained web page that accompanies a post on [achilleaskostoulas.com](https://achilleaskostoulas.com).
 
-The activities ask participants to produce something rather than recognise a correct answer:
+## Structure
+
+```
+index.html                        landing page listing the resources
+what-is-applied-linguistics/
+  index.html                      the workbench for that post
+```
+
+Each resource lives in its own folder with an `index.html` inside it, so it is served at a clean address such as `/AL-LE/what-is-applied-linguistics/` and can carry its own images or local copies of libraries without colliding with anything else. To add a resource, create a folder, put its `index.html` inside, and add an `<article>` block to the root `index.html`.
+
+There is no build step and no framework. Every page is plain HTML, CSS and JavaScript in one file.
+
+## Resources
+
+### What is applied linguistics?
+
+Six activities based on the post [What is applied linguistics?](https://achilleaskostoulas.com/2018/05/10/what-is-applied-linguistics/). They ask participants to produce something rather than recognise a correct answer:
 
 1. **Rewrite the definition** — revise Brumfit's definition and test it against the four elements of the post.
 2. **Where is the boundary?** — place six studies on a scale from general education to applied linguistics and justify each placement.
@@ -15,29 +29,24 @@ The activities ask participants to produce something rather than recognise a cor
 
 A final tab gathers everything the participant has written, which they can copy as text or save as a PDF.
 
+The resource is designed for individual preparation before a shared discussion, not as a replacement for one. Activities 2 and 6 in particular are built to produce disagreement, and that disagreement has to happen somewhere else: a seminar, a forum, a shared document. Asking participants to post their copied text into a course forum is the simplest way to make that happen.
+
 ## Privacy
 
-The page stores nothing. There is no server, no database, no analytics, no cookies and no browser storage. Answers exist only in the open tab and are lost on reload, which the page states clearly at the top. Participants keep their work by copying it or saving the PDF.
+The pages store nothing. There is no server, no database, no analytics, no cookies and no browser storage. Answers exist only in the open tab and are lost on reload, which the page states clearly at the top. Participants keep their work by copying it or saving the PDF.
 
-The PDF is generated in the participant's own browser using [pdfmake](https://pdfmake.github.io/docs/), loaded from the jsDelivr CDN. That request carries nothing the participant has typed. If the library fails to load, the page says so and directs participants to the copy option instead. To remove the external request entirely, download `pdfmake.min.js` and `vfs_fonts.js` into this repository and change the two `<script src>` tags in `index.html` to point at the local copies.
+The PDF is generated in the participant's own browser using [pdfmake](https://pdfmake.github.io/docs/), loaded from the jsDelivr CDN. That request carries nothing the participant has typed. If the library fails to load, the page says so and directs participants to the copy option instead. To remove the external request entirely, download `pdfmake.min.js` and `vfs_fonts.js` into the resource's folder and change the two `<script src>` tags in its `index.html` to point at the local copies.
 
-## Using it
+## Hosting
 
-The whole resource is the single file `index.html`. There is no build step.
-
-- **GitHub Pages** — in Settings → Pages, set the source to the `main` branch, root folder.
-- **Moodle, Blackboard or similar** — upload `index.html` as a file resource, or paste its contents into an HTML block.
+- **GitHub Pages** — in Settings → Pages, set the source to the `main` branch, root folder. The collection is then at `https://aikostoulas.github.io/AL-LE/`.
+- **Moodle, Blackboard or similar** — upload a resource's `index.html` as a file resource, or paste its contents into an HTML block.
 - **WordPress** — upload the file to `/wp-content/uploads/` and link to it, or embed it in an iframe.
 - **Offline** — open the file directly in a browser. Everything works except PDF export, which needs the CDN unless you bundle the library locally.
 
-## Teaching notes
-
-The resource is designed for individual preparation before a shared discussion, not as a replacement for one. Activities 2 and 6 in particular are built to produce disagreement, and that disagreement has to happen somewhere else: a seminar, a forum, a shared document. Asking participants to post their copied text into a course forum is the simplest way to make that happen.
-
 ## Credit
 
-Content adapted from Achilleas Kostoulas, *What is applied linguistics?*, published 10 May 2018 and revised since, at
-<https://achilleaskostoulas.com/2018/05/10/what-is-applied-linguistics/>.
+Content adapted from posts by Achilleas Kostoulas at <https://achilleaskostoulas.com>, with each resource naming and linking its source post.
 
 Brumfit's definition is quoted from Brumfit, C. J. (1995). Teacher professionalism and research. In G. Cook & B. Seidlhofer (eds.), *Principle and Practice in Applied Linguistics*. Oxford: Oxford University Press, p. 27.
 
