@@ -37,7 +37,7 @@ The resource is designed for individual preparation before a shared discussion, 
 
 Self-study activities based on the post [Every Language Is Someone's World: Reflections on International Mother Language Day 2026](https://achilleaskostoulas.com/2026/02/23/international-mother-language-day-2/). Each activity has its own page, reached from a contents list in the sidebar:
 
-- **Start here**: who the resource is for, how it works, a note for readers who are not from Greece, links to the post and the author, and the licence.
+- **Start here**: who the resource is for, how it works, a note for readers who are not from Greece, links to the post and to Kostoulas, and the licence.
 - **Warm-up**: a word from home that does not translate.
 - **Activities 1 and 2** (before reading): a list of the reader's own languages, and six statements to agree or disagree with.
 - **Activities 3 to 8** (while reading): one per section of the post, covering first-language criteria, language and dialect, the monolingual myth, second and foreign languages and repertoires, the three dimensions of language policy, and deficit versus resource framings.
@@ -46,7 +46,7 @@ Self-study activities based on the post [Every Language Is Someone's World: Refl
 
 The resource is written for readers working without a tutor. Every activity ends with a collapsible self-check, Activity 6 checks its own answers, and earlier answers (the warm-up word, the language list, the six statements) reappear where later activities build on them. Boxes headed "If you are not from Greece" give visiting students, such as Erasmus students, a way into the Greek examples.
 
-The sidebar also holds the name field and the export options: a Word document, a plain text file, or copy to clipboard.
+The sidebar also holds the name field and the export options: a Word document, a plain text file, or copy to clipboard. Because the set is meant to be done over several sittings, readers can also save a progress file (JSON) to their own device and load it later to refill every answer. The file is read in the browser and is not uploaded anywhere.
 
 This resource is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 

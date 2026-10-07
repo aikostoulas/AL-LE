@@ -49,6 +49,8 @@ p{margin:.4rem 0 .85rem}
 .export{border-top:1px solid var(--line);padding-top:1rem;margin-top:auto}
 .export label{margin-top:0}
 .export .btn{width:100%;margin-top:.45rem;text-align:center}
+.export .sub{font-size:.8rem;color:var(--muted);margin:.9rem 0 0}
+.export .danger{margin-top:.9rem}
 .export .note{font-size:.78rem;color:var(--muted);margin:.6rem 0 0}
 .status{font-size:.82rem;color:var(--accent);min-height:1.3em;margin:.4rem 0 0}
 .topbar{display:none}
@@ -139,12 +141,17 @@ legend{font-weight:600;font-size:.95rem;margin-bottom:.3rem;padding:0}
     <h2>Your work</h2>
     <label for="pname">Your name <span class="hint">Added to your exported work. Not saved anywhere.</span></label>
     <input type="text" id="pname" autocomplete="name">
+    <p class="sub">To keep or hand in</p>
     <button class="btn" id="word" type="button">Save as Word document</button>
     <button class="btn ghost" id="txt" type="button">Save as plain text</button>
     <button class="btn ghost" id="copy" type="button">Copy all</button>
+    <p class="sub">To continue later</p>
+    <button class="btn ghost" id="save" type="button">Save progress file</button>
+    <button class="btn ghost" id="load" type="button">Load progress file</button>
+    <input type="file" id="loadfile" accept=".json,application/json" hidden>
     <button class="btn danger" id="clear" type="button">Clear everything</button>
     <p class="status" id="status" role="status"></p>
-    <p class="note">Nothing you type is stored or sent anywhere. Reloading or closing this page erases it, so save your work before you leave.</p>
+    <p class="note">Nothing you type is stored or sent anywhere. Reloading or closing this page erases it. Before you leave, save a progress file to your own device; load it next time to carry on where you stopped.</p>
   </div>
 </aside>
 
@@ -166,11 +173,11 @@ legend{font-weight:600;font-size:.95rem;margin-bottom:.3rem;padding:0}
       <li>A warm-up, nine activities and a closing reflection, each on its own page. Use the contents list to move between them.</li>
       <li>Activities 3 to 8 each follow one section of the post. Read the section, then do its activity before moving on.</li>
       <li>Every activity ends with a <strong>Self-check</strong>. Sometimes it gives an answer. More often it tells you how to know you have done enough, because many tasks are about your own experience and have no single right answer.</li>
-      <li>The whole set takes about three and a half hours. Spread it over several sittings, and save your work each time.</li>
+      <li>The whole set takes about three and a half hours. Spread it over several sittings. Before you stop, use "Save progress file" in the contents panel; next time, "Load progress file" puts your answers back.</li>
     </ul>
   </div>
 
-  <p class="privacy"><strong>Nothing you type is saved or sent anywhere.</strong> Your answers live only in this browser tab and disappear when you close or reload it. To keep them, enter your name under "Your work" and save a Word document or a text file.</p>
+  <p class="privacy"><strong>Nothing you type is saved or sent anywhere.</strong> Your answers live only in this browser tab and disappear when you close or reload it. To keep them, enter your name under "Your work". Save a progress file if you want to continue later, and a Word document or a text file when you want something to read, print or hand in. All of these are saved to your own device.</p>
 
   <div class="visitor">
     <strong>If you are not from Greece</strong>
@@ -184,10 +191,10 @@ legend{font-weight:600;font-size:.95rem;margin-bottom:.3rem;padding:0}
   </div>
 
   <div class="card">
-    <h3>About the author</h3>
+    <h3>About Kostoulas</h3>
     <p><a href="https://achilleaskostoulas.com" target="_blank" rel="noopener">Achilleas Kostoulas</a> is an applied linguist and language teacher educator at the University of Thessaly, Greece. More resources like this one are listed in the <a href="../">collection</a>.</p>
     <h3>Copyright and reuse</h3>
-    <p>© 2026 Achilleas Kostoulas. These activities are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>. You may share and adapt them for non-commercial purposes, provided you credit the author and link to the original post.</p>
+    <p>© 2026 Achilleas Kostoulas. These activities are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>. You may share and adapt them for non-commercial purposes, provided you credit Kostoulas and link to the original post.</p>
   </div>
 </section>
 
@@ -437,7 +444,7 @@ legend{font-weight:600;font-size:.95rem;margin-bottom:.3rem;padding:0}
   <h3>Reading on</h3>
   <p>Choose your own path. Follow what interests you, stop reading anything that doesn't, and skim where you like. All of these are linked from the post.</p>
   <div class="card">
-    <div class="trail"><strong>The day over time</strong><p>The author's International Mother Language Day posts from <a href="https://achilleaskostoulas.com/2014/02/21/international-mother-language-day/" target="_blank" rel="noopener">2014</a> and <a href="https://achilleaskostoulas.com/2019/02/21/international-mother-language-day-2019/" target="_blank" rel="noopener">2019</a>. What has changed in how he writes about the day?</p></div>
+    <div class="trail"><strong>The day over time</strong><p>Kostoulas's International Mother Language Day posts from <a href="https://achilleaskostoulas.com/2014/02/21/international-mother-language-day/" target="_blank" rel="noopener">2014</a> and <a href="https://achilleaskostoulas.com/2019/02/21/international-mother-language-day-2019/" target="_blank" rel="noopener">2019</a>. What has changed in how he writes about the day?</p></div>
     <div class="trail"><strong>Families</strong><p>Start with the summary <a href="https://achilleaskostoulas.com/2020/02/02/mixed-family-language-policy/" target="_blank" rel="noopener">Raising children to speak many languages</a>. If you want more, go on to the <a href="https://achilleaskostoulas.com/wp-content/uploads/2020/02/FLPPostPrint.pdf" target="_blank" rel="noopener">full article it summarises</a> (Kostoulas &amp; Motsiou, 2020).</p></div>
     <div class="trail"><strong>Schools</strong><p>The post on <a href="https://achilleaskostoulas.com/2025/06/24/schoolscapes-arent-neutral-language-teaching-for-inclusion/" target="_blank" rel="noopener">schoolscapes</a>, linked where the post discusses language ideology.</p></div>
     <div class="trail"><strong>Beginnings</strong><p>The post on <a href="https://achilleaskostoulas.com/2014/09/19/wild-children-first-language-acquisition/" target="_blank" rel="noopener">wild children and first language acquisition</a>.</p></div>
@@ -448,7 +455,7 @@ legend{font-weight:600;font-size:.95rem;margin-bottom:.3rem;padding:0}
   <p class="stuck">Tips for reading alone: start with the shortest text on your trail. If an academic article feels heavy, read the abstract, introduction and conclusion, then decide. Do not look up every unknown word.</p>
   <div class="visitor">
     <strong>If you are not from Greece</strong>
-    Some of the linked posts deal with Greece in detail. If one loses you, switch trails, or read it alongside something about the same topic in your own country and log both.
+    Some of the linked posts deal with Greece in detail. If one proves challenging to follow, switch trails, or read it alongside something about the same topic in your own country and log both.
   </div>
 
   <h3>Reading log</h3>
@@ -492,7 +499,7 @@ const STATEMENTS=[
 STATEMENTS.forEach((s,i)=>{
   const f=el('fieldset','item');f.dataset.rq=s;
   f.innerHTML=`<legend>${i+1}. ${s}</legend><div class="opts">`+
-    ['Agree','Disagree','Unsure'].map(o=>`<label><input type="radio" name="b${i}" value="${o}"> ${o}</label>`).join('')+`</div>`;
+    ['Agree','Unsure','Disagree'].map(o=>`<label><input type="radio" name="b${i}" value="${o}"> ${o}</label>`).join('')+`</div>`;
   $('beliefs').appendChild(f);
   const d=el('div','item',`<p>${i+1}. ${s}</p><div class="mirror" id="bm${i}"></div>
     <label for="bk${i}">I used to think… Now I think… because the post says…</label><textarea id="bk${i}"></textarea>`);
@@ -701,17 +708,58 @@ $('copy').onclick=async()=>{
   try{await navigator.clipboard.writeText(asText(data));say('Copied. Paste it wherever you need it.')}
   catch(e){say('Copying is not available here. Save a file instead.')}
 };
-let armed=null;
-$('clear').onclick=()=>{
-  const b=$('clear');
-  if(!armed){b.textContent='Click again to erase all answers';armed=setTimeout(()=>{armed=null;b.textContent='Clear everything'},5000);return}
-  clearTimeout(armed);armed=null;b.textContent='Clear everything';
+/* ---------- progress file: save to and load from the reader's own device ---------- */
+const KIND='every-language-is-someones-world/progress';
+const FIELDS='main textarea[id],main input[type=text][id],main select[id]';
+function snapshot(){
+  const fields={},radios={};
+  document.querySelectorAll(FIELDS).forEach(e=>{if(e.value)fields[e.id]=e.value});
+  document.querySelectorAll('main input[type=radio]:checked').forEach(e=>{radios[e.name]=e.value});
+  return {kind:KIND,version:1,saved:new Date().toISOString(),name:name(),
+    rows:{langs:$('langs').children.length,log:$('log').children.length},fields,radios,
+    checks:[...document.querySelectorAll('main input[type=checkbox]')].map(e=>e.checked),page:current};
+}
+function wipe(){
   document.querySelectorAll('textarea,input[type=text]').forEach(e=>e.value='');
   document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(e=>e.checked=false);
   document.querySelectorAll('select').forEach(e=>e.selectedIndex=0);
   document.querySelectorAll('.fb').forEach(e=>e.hidden=true);
-  $('a9wc').textContent='0 words';refresh();mirrors();say('All answers cleared.');
+}
+function settle(){const n=words($('a9w').value);$('a9wc').textContent=`${n} ${n===1?'word':'words'}`;finalMsg();refresh();mirrors()}
+function restore(d){
+  if(!d||d.kind!==KIND||typeof d.fields!=='object')throw new Error('wrong file');
+  wipe();
+  const cap=n=>Math.min(Math.max(parseInt(n,10)||0,0),60);
+  while($('langs').children.length<cap(d.rows&&d.rows.langs))addLang();
+  while($('log').children.length<cap(d.rows&&d.rows.log))addLog();
+  $('pname').value=typeof d.name==='string'?d.name:'';
+  document.querySelectorAll(FIELDS).forEach(e=>{const v=d.fields[e.id];if(typeof v==='string')e.value=v});
+  document.querySelectorAll('main input[type=radio]').forEach(e=>{e.checked=!!d.radios&&d.radios[e.name]===e.value});
+  const boxes=document.querySelectorAll('main input[type=checkbox]');
+  if(Array.isArray(d.checks)&&d.checks.length===boxes.length)boxes.forEach((e,i)=>{e.checked=d.checks[i]===true});
+  settle();
+  show(Number.isInteger(d.page)&&d.page>=0&&d.page<sections.length?d.page:0,true);
+}
+$('save').onclick=()=>{
+  if(!ready())return;
+  download(new Blob([JSON.stringify(snapshot(),null,1)],{type:'application/json'}),fname('json').replace(/\.json$/,'-progress.json'));
+  say('Progress file saved to your device. Load it here next time to continue.');
 };
+/* buttons that erase answers ask for a second click instead of opening a dialog */
+function twice(b,ask,run){
+  let t=null;const label=b.textContent;
+  b.onclick=()=>{
+    if(!t&&collect().length){b.textContent=ask;t=setTimeout(()=>{t=null;b.textContent=label},5000);return}
+    clearTimeout(t);t=null;b.textContent=label;run();
+  };
+}
+twice($('load'),'Click again: this replaces your current answers',()=>{$('loadfile').value='';$('loadfile').click()});
+$('loadfile').onchange=async e=>{
+  const f=e.target.files[0];if(!f)return;
+  try{restore(JSON.parse(await f.text()));say('Your saved answers are back. Carry on where you stopped.')}
+  catch(err){say('That file could not be read. Choose the progress file (ending in "-progress.json") that this page saved, not the Word or text file.')}
+};
+twice($('clear'),'Click again to erase all answers',()=>{wipe();settle();say('All answers cleared.')});
 
 const start=parseInt(location.hash.slice(1),10);
 show(start>=1&&start<=sections.length?start-1:0,false);refresh();
