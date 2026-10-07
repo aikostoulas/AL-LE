@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Every Language Is Someone's World: activities for independent readers</title>
+<meta name="description" content="Self-study activities on first languages, dialects, plurilingualism and language policy, based on a post by Achilleas Kostoulas.">
+<style>
+:root{
+  --ink:#1E2833; --muted:#5A6673; --paper:#F6F7F4; --sheet:#FFFFFF;
+  --line:#D5DAD3; --accent:#2E6B5E; --accent-soft:#E2EEEA; --warn:#9A6B17; --warn-soft:#F5ECDA;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E6EAE6; --muted:#A3ADB5; --paper:#161C21; --sheet:#1F272E;
+    --line:#34404A; --accent:#7CC0AE; --accent-soft:#233A35; --warn:#E0B660; --warn-soft:#3A3122;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E6EAE6; --muted:#A3ADB5; --paper:#161C21; --sheet:#1F272E;
+  --line:#34404A; --accent:#7CC0AE; --accent-soft:#233A35; --warn:#E0B660; --warn-soft:#3A3122;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 var(--sans)}
+a{color:var(--accent);text-underline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.9rem,5vw,2.7rem);margin:.2rem 0 .6rem}
+h2{font-size:1.55rem;margin:0 0 .5rem}
+h3{font-size:1.08rem;margin:1.5rem 0 .3rem}
+p{margin:.4rem 0 .85rem}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* layout */
+.shell{display:grid;grid-template-columns:18rem minmax(0,1fr);min-height:100vh}
+.side{background:var(--sheet);border-right:1px solid var(--line);position:sticky;top:0;height:100vh;overflow-y:auto;padding:1.1rem 1rem 1.5rem;display:flex;flex-direction:column;gap:1.1rem}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;line-height:1.25;margin:0}
+.brand small{display:block;font-family:var(--sans);font-weight:400;font-size:.78rem;color:var(--muted);margin-top:.25rem}
+.side h2{font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .35rem}
+.side ol{list-style:none;margin:0;padding:0}
+.side .part{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:.75rem 0 .2rem .55rem}
+.side nav button{display:flex;gap:.5rem;align-items:baseline;width:100%;text-align:left;font:inherit;font-size:.9rem;line-height:1.3;border:0;background:none;color:var(--ink);padding:.36rem .55rem;border-radius:6px;cursor:pointer}
+.side nav button:hover{background:var(--accent-soft)}
+.side nav button[aria-current="page"]{background:var(--accent-soft);font-weight:600}
+.dot{flex:none;width:.55rem;height:.55rem;border-radius:50%;border:1.5px solid var(--muted);transform:translateY(-1px)}
+.done .dot{background:var(--accent);border-color:var(--accent)}
+.export{border-top:1px solid var(--line);padding-top:1rem;margin-top:auto}
+.export label{margin-top:0}
+.export .btn{width:100%;margin-top:.45rem;text-align:center}
+.export .note{font-size:.78rem;color:var(--muted);margin:.6rem 0 0}
+.status{font-size:.82rem;color:var(--accent);min-height:1.3em;margin:.4rem 0 0}
+.topbar{display:none}
+main{padding:2rem 1.25rem 3rem;min-width:0}
+.page{max-width:44rem;margin:0 auto}
+section[hidden]{display:none}
+.kicker{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 .3rem}
+.time{color:var(--muted);font-size:.9rem;margin:0 0 1rem}
+.lede{font-size:1.1rem;color:var(--muted);max-width:38rem}
+footer{max-width:44rem;margin:2.5rem auto 0;padding-top:1.1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;text-align:center}
+
+/* content blocks */
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.2rem;margin:1rem 0}
+.card h3:first-child{margin-top:0}
+.card ul{margin:.3rem 0;padding-left:1.2rem}
+.card li{margin:.3rem 0}
+.privacy{border-left:3px solid var(--accent);background:var(--accent-soft);padding:.7rem .9rem;font-size:.94rem;margin:1rem 0}
+.visitor{border-left:3px solid var(--warn);background:var(--warn-soft);padding:.7rem .9rem;margin:1.2rem 0;font-size:.95rem}
+.visitor>strong:first-child{display:block;font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--warn);margin-bottom:.2rem}
+.visitor ul{margin:.3rem 0 0;padding-left:1.2rem}
+.visitor label{margin-top:.7rem}
+.stuck{color:var(--muted);font-size:.93rem;font-style:italic}
+blockquote{margin:.9rem 0;padding:.6rem 1rem;border-left:3px solid var(--line);font-family:var(--serif);font-size:1.1rem}
+details.check{border:1px solid var(--accent);border-radius:8px;margin:1.6rem 0 0;background:var(--sheet)}
+details.check summary{cursor:pointer;font-weight:600;color:var(--accent);padding:.6rem .9rem;list-style-position:inside}
+details.check>div{padding:0 .9rem .7rem;font-size:.95rem}
+.mirror{border:1px dashed var(--line);border-radius:8px;padding:.6rem .8rem;font-size:.93rem;color:var(--muted);margin:.6rem 0;white-space:pre-wrap}
+.mirror b{color:var(--ink);font-weight:600}
+
+/* forms */
+label{display:block;font-weight:600;font-size:.95rem;margin:1.1rem 0 .3rem}
+.hint{display:block;font-weight:400;color:var(--muted);font-size:.86rem}
+textarea,input[type=text],select{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.55rem .65rem}
+textarea{min-height:5.5rem;resize:vertical}
+textarea.tall{min-height:11rem}
+fieldset{border:0;padding:0;margin:1.1rem 0 0;min-width:0}
+legend{font-weight:600;font-size:.95rem;margin-bottom:.3rem;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:.3rem 1.1rem}
+.opts label,.ticks label{font-weight:400;display:flex;gap:.45rem;align-items:flex-start;margin:.2rem 0}
+.opts input,.ticks input{margin-top:.3rem;accent-color:var(--accent)}
+.item{border-top:1px solid var(--line);padding-top:.9rem;margin-top:1.1rem}
+.item>p:first-child,.item>legend{font-family:var(--serif);font-size:1.06rem;font-weight:400;margin:0 0 .3rem}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.2rem .8rem}
+.fields label{margin-top:.6rem;font-size:.88rem}
+.rowhead{font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0}
+.wc{font-size:.82rem;color:var(--muted);margin:.2rem 0 0}
+.fb{font-size:.9rem;margin:.35rem 0 0;padding:.4rem .65rem;border-radius:6px}
+.fb.ok{background:var(--accent-soft);color:var(--ink)}
+.fb.no{background:var(--warn-soft);color:var(--ink)}
+.fb[hidden]{display:none}
+.btn{font:inherit;border-radius:6px;padding:.55rem 1rem;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--sheet)}
+.btn.ghost{background:none;color:var(--accent)}
+.btn.danger{background:none;color:var(--warn);border-color:var(--warn)}
+.btn.small{padding:.35rem .8rem;font-size:.9rem;margin-top:.8rem}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:2.2rem}
+.pager .btn[hidden]{visibility:hidden;display:inline-block}
+.trail{margin:.9rem 0}
+.trail strong{font-family:var(--serif);font-size:1.03rem}
+.trail p{margin:.15rem 0 0}
+
+@media (max-width:56rem){
+  .shell{display:block}
+  .topbar{display:flex;align-items:center;gap:.7rem;position:sticky;top:0;z-index:6;background:var(--sheet);border-bottom:1px solid var(--line);padding:.5rem 1rem}
+  .topbar span{font-family:var(--serif);font-weight:600;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topbar .btn{padding:.35rem .7rem;font-size:.9rem;flex:none}
+  .side{position:fixed;inset:0 auto 0 0;width:min(19rem,88vw);z-index:8;transform:translateX(-102%);transition:transform .18s ease-out;box-shadow:0 0 2rem rgba(0,0,0,.25)}
+  .side.open{transform:none}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:7}
+  .scrim[hidden]{display:none}
+  main{padding:1.4rem 1rem 3rem}
+}
+@media (prefers-reduced-motion:reduce){.side{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="btn ghost" id="menu" type="button" aria-controls="side" aria-expanded="false">Contents &amp; export</button>
+  <span id="where"></span>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+
+<div class="shell">
+<aside class="side" id="side">
+  <p class="brand">Every Language Is Someone's World<small>Activities for independent readers</small></p>
+  <nav aria-label="Pages"><h2>Contents</h2><ol id="nav"></ol></nav>
+  <div class="export">
+    <h2>Your work</h2>
+    <label for="pname">Your name <span class="hint">Added to your exported work. Not saved anywhere.</span></label>
+    <input type="text" id="pname" autocomplete="name">
+    <button class="btn" id="word" type="button">Save as Word document</button>
+    <button class="btn ghost" id="txt" type="button">Save as plain text</button>
+    <button class="btn ghost" id="copy" type="button">Copy all</button>
+    <button class="btn danger" id="clear" type="button">Clear everything</button>
+    <p class="status" id="status" role="status"></p>
+    <p class="note">Nothing you type is stored or sent anywhere. Reloading or closing this page erases it, so save your work before you leave.</p>
+  </div>
+</aside>
+
+<main>
+<div class="page">
+
+<!-- ============ COVER ============ -->
+<section data-nav="Start here" data-title="Start here">
+  <p class="kicker">Self-study activities</p>
+  <h1>Every Language Is Someone's World</h1>
+  <p class="lede">Activities on first languages, dialects, plurilingualism and language policy, for readers working on their own.</p>
+  <p>Based on: Kostoulas, A. (2026). <a href="https://achilleaskostoulas.com/2026/02/23/international-mother-language-day-2/" target="_blank" rel="noopener"><cite>Every Language Is Someone's World: Reflections on International Mother Language Day 2026</cite></a>. Keep the post open in another tab while you work.</p>
+
+  <div class="card">
+    <h3>Who this is for</h3>
+    <p>Student teachers, practising teachers and anyone studying language education who wants to work through the post independently. You do not need a tutor or a group. The post grew out of a lecture for students in Greece, but the activities work for readers from anywhere.</p>
+    <h3>How it works</h3>
+    <ul>
+      <li>A warm-up, nine activities and a closing reflection, each on its own page. Use the contents list to move between them.</li>
+      <li>Activities 3 to 8 each follow one section of the post. Read the section, then do its activity before moving on.</li>
+      <li>Every activity ends with a <strong>Self-check</strong>. Sometimes it gives an answer. More often it tells you how to know you have done enough, because many tasks are about your own experience and have no single right answer.</li>
+      <li>The whole set takes about three and a half hours. Spread it over several sittings, and save your work each time.</li>
+    </ul>
+  </div>
+
+  <p class="privacy"><strong>Nothing you type is saved or sent anywhere.</strong> Your answers live only in this browser tab and disappear when you close or reload it. To keep them, enter your name under "Your work" and save a Word document or a text file.</p>
+
+  <div class="visitor">
+    <strong>If you are not from Greece</strong>
+    Many of the post's examples are Greek. You do not need background knowledge to follow them.
+    <ul>
+      <li>Wherever an activity says "Greece" or "Greek", you can substitute your own country and its main language, or do both and compare.</li>
+      <li>When the post lists communities in Greece (Pomak, Romani, Arvanite, Vlach and others), you do not need to know them. The point is how long the list is in a country that presents itself as monolingual.</li>
+      <li>"Idioma" is explained in the post itself, and the Greek phrase in footnote 7 is translated there.</li>
+      <li>You have one advantage: you are living the post's distinctions right now. Look for boxes like this one, which carry an extra prompt for you.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>About the author</h3>
+    <p><a href="https://achilleaskostoulas.com" target="_blank" rel="noopener">Achilleas Kostoulas</a> is an applied linguist and language teacher educator at the University of Thessaly, Greece. More resources like this one are listed in the <a href="../">collection</a>.</p>
+    <h3>Copyright and reuse</h3>
+    <p>© 2026 Achilleas Kostoulas. These activities are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>. You may share and adapt them for non-commercial purposes, provided you credit the author and link to the original post.</p>
+  </div>
+</section>
+
+<!-- ============ WARM-UP ============ -->
+<section data-nav="Warm-up" data-title="Warm-up" hidden>
+  <p class="kicker">Before anything else</p>
+  <h2>Warm-up</h2>
+  <p class="time">About 5 minutes</p>
+  <p>Think of one word or expression from the way people spoke at home when you were small that you cannot translate well into any other language you know. Say it aloud.</p>
+  <label for="w1">The word or expression</label>
+  <input type="text" id="w1" data-q="My word or expression">
+  <label for="w2">Who did you hear it from?</label>
+  <input type="text" id="w2" data-q="Who I heard it from">
+  <label for="w3">When did you last use it?</label>
+  <input type="text" id="w3" data-q="When I last used it">
+  <details class="check"><summary>Self-check</summary><div>
+    <p>You are ready to go on when you have one word and one person in mind. Keep both; you will need them at the end.</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 1 ============ -->
+<section data-part="Before you read" data-nav="1. My languages" data-title="Activity 1. My languages" hidden>
+  <p class="kicker">Before you read</p>
+  <h2>Activity 1. My languages</h2>
+  <p class="time">About 15 minutes</p>
+  <p>List every way of speaking you have ever used, including school languages, home varieties, regional speech, and languages you only understand. For each one, note where you learned it, with whom you use it, and how it feels.</p>
+  <p class="stuck">If you are stuck: think of a grandparent, a holiday, a song, a job, a prayer, a game.</p>
+  <div id="langs"></div>
+  <button class="btn ghost small" type="button" id="addlang">Add another</button>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>Does your list contain at least one item that is not a named national language? If not, look again at how you speak at home, with old friends, or online.</p>
+    <p>You will return to this list in Activities 3 and 6.</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 2 ============ -->
+<section data-part="Before you read" data-nav="2. What do I think?" data-title="Activity 2. What do I think?" hidden>
+  <p class="kicker">Before you read</p>
+  <h2>Activity 2. What do I think?</h2>
+  <p class="time">About 5 minutes</p>
+  <p>Mark each statement. Do not look anything up.</p>
+  <div id="beliefs"></div>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>You have marked all six, honestly, including the ones where you suspect the "expected" answer differs from yours. You will come back to them in Activity 9.</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 3 ============ -->
+<section data-part="While you read" data-nav="3. Whose first language?" data-title="Activity 3. Whose first language?" hidden>
+  <p class="kicker">While you read</p>
+  <h2>Activity 3. Whose first language?</h2>
+  <p class="time">Read the section "What Even Is a 'Mother Language'?" first</p>
+  <p>The post gives four criteria for a first language: heritage, early acquisition, proficiency and identity. Tick the criteria that each case meets. Use the third-generation Greek American from the post, and two varieties from your own list.</p>
+  <div class="mirror" data-mirror="langs"></div>
+  <div id="grid"></div>
+  <label for="a3s">Finish the sentence <span class="hint">"The criteria do not line up neatly for me / for someone I know because…"</span></label>
+  <textarea id="a3s" data-q="The criteria do not line up neatly because…"></textarea>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>Can you state, without looking, the two reasons the post gives for preferring "first language" to "mother language"? If only one comes to mind, reread the subsection on rethinking the term.</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 4 ============ -->
+<section data-part="While you read" data-nav="4. Who drew the line?" data-title="Activity 4. Who drew the line?" hidden>
+  <p class="kicker">While you read</p>
+  <h2>Activity 4. Who drew the line?</h2>
+  <p class="time">Read the section "The Language/Dialect Problem" first</p>
+  <p>For each case in the post, note three things: whether speakers can understand each other, whether we speak of one language or several, and what explanation the post gives for the label.</p>
+  <div id="cases"></div>
+  <h3>Your own case</h3>
+  <label for="a4o1">A way of speaking that people around you call "just a dialect", "wrong" or "not proper"</label>
+  <textarea id="a4o1" data-q="My own case"></textarea>
+  <label for="a4o2">Who says so, and what do they gain?</label>
+  <textarea id="a4o2" data-q="Who says so, and what they gain"></textarea>
+  <div class="visitor">
+    <strong>If you are not from Greece</strong>
+    Take your case from your home country.
+    <label for="a4v">Is there a word there that does the job "idioma" does in Greece: a label that avoids calling something a dialect or a language?</label>
+    <textarea id="a4v" data-q="A label like 'idioma' in my home country"></textarea>
+  </div>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>Your notes should show intelligibility and labels pulling in opposite directions in at least two cases. If they do, you have found the section's argument.</p>
+    <p>You should also be able to explain the Weinreich line and the term "variety" in your own words.</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 5 ============ -->
+<section data-part="While you read" data-nav="5. Under the surface" data-title="Activity 5. Under the surface" hidden>
+  <p class="kicker">While you read</p>
+  <h2>Activity 5. Under the surface</h2>
+  <p class="time">Read the section "The Myth of the Monolingual Society" first</p>
+  <fieldset data-rq="Task chosen"><legend>Choose one task</legend>
+    <div class="ticks">
+      <label><input type="radio" name="a5" value="Family"> <span><strong>Family.</strong> Go back three generations. What did your great-grandparents speak at home? What happened to it?</span></label>
+      <label><input type="radio" name="a5" value="Place"> <span><strong>Place.</strong> Walk or picture one street you know well. Which languages can you see or hear, and which are absent although their speakers are present?</span></label>
+    </div>
+  </fieldset>
+  <label for="a5t">Your notes <span class="hint">Sentence starters: "The language that retreated was…" / "It survives in…" / "It was lost when…"</span></label>
+  <textarea id="a5t" class="tall" data-q="My notes"></textarea>
+  <div class="visitor">
+    <strong>If you are not from Greece</strong>
+    The post names French and German among the national languages that were actively constructed. For the Place task, you could instead use the street where you live now and describe it as a newcomer sees it.
+    <label for="a5v">What do you know about how a national language was constructed where you come from, and what was pushed aside?</label>
+    <textarea id="a5v" data-q="How a national language was constructed where I come from"></textarea>
+  </div>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>Have you named at least one language or variety that official descriptions of the place or family would leave out?</p>
+    <p>Can you say, using the post's words, why the monolingual society is called a "political construction"?</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 6 ============ -->
+<section data-part="While you read" data-nav="6. Getting the terms straight" data-title="Activity 6. Getting the terms straight" hidden>
+  <p class="kicker">While you read</p>
+  <h2>Activity 6. Getting the terms straight</h2>
+  <p class="time">Read the section "The languages we speak" first</p>
+  <p>Label each situation, using the post's definitions.</p>
+  <div id="terms"></div>
+  <button class="btn ghost small" type="button" id="checkterms">Check my answers</button>
+  <p class="fb no" id="termsmsg" hidden></p>
+
+  <h3>From list to repertoire</h3>
+  <p>Return to your Activity 1 list and turn it into a repertoire. Add registers, professional vocabularies, and moments when you mix.</p>
+  <div class="mirror" data-mirror="langs"></div>
+  <label for="a6r">What your repertoire also includes</label>
+  <textarea id="a6r" data-q="What my repertoire also includes"></textarea>
+  <label for="a6s">Has anything shifted over your lifetime, as the post describes?</label>
+  <textarea id="a6s" data-q="What has shifted over my lifetime"></textarea>
+  <div class="visitor">
+    <strong>If you are not from Greece</strong>
+    Add yourself as situation (f).
+    <label for="a6v1">What is Greek for you during your stay, by the post's definition?</label>
+    <textarea id="a6v1" data-q="(f) What Greek is for me during my stay"></textarea>
+    <label for="a6v2">Has your first language started to feel different since you arrived?</label>
+    <textarea id="a6v2" data-q="How my first language feels since I arrived"></textarea>
+  </div>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>Use "Check my answers" above for situations (a) to (e). For (f), apply the same test as (a) and (c): is this the dominant language of the community you are living in?</p>
+    <p>Your repertoire is complete enough when it includes at least one thing that is not a "language" at all, such as a register or a habit of switching.</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 7 ============ -->
+<section data-part="While you read" data-nav="7. Three lenses" data-title="Activity 7. Three lenses" hidden>
+  <p class="kicker">While you read</p>
+  <h2>Activity 7. Three lenses</h2>
+  <p class="time">Read the section "Language Policy: Who Decides?" first</p>
+  <p>Choose a setting you know from the inside, such as a school, a workplace or your family. Describe it through the post's three dimensions.</p>
+  <label for="a7a">The setting</label>
+  <input type="text" id="a7a" data-q="The setting">
+  <label for="a7b">Ideology <span class="hint">"Here, people believe that … is the valuable / proper / embarrassing way to speak."</span></label>
+  <textarea id="a7b" data-q="Ideology"></textarea>
+  <label for="a7c">Management <span class="hint">"The rules, written or unwritten, say…"</span></label>
+  <textarea id="a7c" data-q="Management"></textarea>
+  <label for="a7d">Practice <span class="hint">"What people actually do is…"</span></label>
+  <textarea id="a7d" data-q="Practice"></textarea>
+  <label for="a7e">Where do the three disagree?</label>
+  <textarea id="a7e" data-q="Where the three disagree"></textarea>
+  <label for="a7f">In two sentences: what do the South African and US examples each say about who belongs?</label>
+  <textarea id="a7f" data-q="South Africa and the US: who belongs"></textarea>
+  <div class="visitor">
+    <strong>If you are not from Greece</strong>
+    Your exchange programme is a good setting: which languages are assumed, which are required, and which do students really use with each other?
+  </div>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>You have one sentence per dimension and at least one point where they conflict.</p>
+    <p>If your ideology and management sentences say the same thing, remember that ideology is belief and management is formal decision.</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 8 ============ -->
+<section data-part="While you read" data-nav="8. Deficit or resource?" data-title="Activity 8. Deficit or resource?" hidden>
+  <p class="kicker">While you read</p>
+  <h2>Activity 8. Deficit or resource?</h2>
+  <p class="time">Read the section "The World We're Actually Living In" first</p>
+  <p>Rewrite each statement so that it treats the child's language as a resource.</p>
+  <div class="item"><p>"He has no language yet."</p>
+    <label for="a8a">Your rewrite</label><textarea id="a8a" data-q="Rewrite of “He has no language yet.”"></textarea></div>
+  <div class="item"><p>"She can't join in until her Greek improves."</p>
+    <label for="a8b">Your rewrite</label><textarea id="a8b" data-q="Rewrite of “She can't join in until her Greek improves.”"></textarea></div>
+  <div class="item"><p>"They should speak only Greek at home."</p>
+    <label for="a8c">Your rewrite</label><textarea id="a8c" data-q="Rewrite of “They should speak only Greek at home.”"></textarea></div>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>The last paragraph of this section of the post answers the third statement directly; your rewrite should agree with it.</p>
+    <p>For the other two, check that your new sentence names something the child can do.</p>
+  </div></details>
+</section>
+
+<!-- ============ ACTIVITY 9 ============ -->
+<section data-part="After you read" data-nav="9. Looking back" data-title="Activity 9. Looking back" hidden>
+  <p class="kicker">After you read</p>
+  <h2>Activity 9. Looking back</h2>
+  <p class="time">About 20 minutes</p>
+  <p>Here are the six statements from Activity 2, with what you said then. For each, write: "I used to think… Now I think… because the post says…" It is fine to remain unconvinced; say what would change your mind.</p>
+  <div id="back"></div>
+  <h3>A language is a world</h3>
+  <label for="a9w">Write 150 to 200 words in response to the post's closing claim that a language is a world. <span class="hint">Write about one language from your repertoire, or one you watched someone lose.</span></label>
+  <textarea id="a9w" class="tall" data-q="A language is a world: my response"></textarea>
+  <p class="wc" id="a9wc">0 words</p>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>Compare your six answers with the Summary and the questions-and-answers section at the bottom of the post.</p>
+    <p>Each of your "because" clauses should point to something the post says, not only to your own opinion.</p>
+  </div></details>
+</section>
+
+<!-- ============ CLOSING REFLECTION ============ -->
+<section data-part="To finish" data-nav="Closing reflection" data-title="Closing reflection" hidden>
+  <p class="kicker">To finish</p>
+  <h2>Closing reflection</h2>
+  <p class="time">About 15 minutes</p>
+
+  <h3>The word</h3>
+  <p>Go back to the word from the warm-up, and reread the last two lines of the post.</p>
+  <div class="mirror" data-mirror="word"></div>
+  <label for="r1">What would be lost if nobody used that word any more?</label>
+  <textarea id="r1" data-q="What would be lost if nobody used my word any more"></textarea>
+
+  <h3>The change</h3>
+  <label for="r2">The idea from this post that I keep coming back to is…</label>
+  <textarea id="r2" data-q="The idea I keep coming back to"></textarea>
+  <label for="r3">The idea I still resist is…</label>
+  <textarea id="r3" data-q="The idea I still resist"></textarea>
+
+  <h3>The next step</h3>
+  <p>The post ends by asking us to take seriously the languages of the people around us. Name one person, one place and one concrete thing you will do differently, as a teacher, a student or a neighbour.</p>
+  <div class="fields">
+    <div><label for="r4">One person</label><input type="text" id="r4" data-q="One person"></div>
+    <div><label for="r5">One place</label><input type="text" id="r5" data-q="One place"></div>
+  </div>
+  <label for="r6">One concrete thing I will do differently</label>
+  <textarea id="r6" data-q="One concrete thing I will do differently"></textarea>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>Your next step is concrete enough if someone else could tell, a month from now, whether you did it.</p>
+  </div></details>
+</section>
+
+<!-- ============ SELF-ASSESSMENT & READING ============ -->
+<section data-part="To finish" data-nav="Self-assessment &amp; reading on" data-title="Self-assessment and reading on" hidden>
+  <p class="kicker">To finish</p>
+  <h2>Self-assessment and reading on</h2>
+
+  <h3>What can I do now?</h3>
+  <p>Tick what you can now do without the post in front of you.</p>
+  <div class="ticks" id="final" data-cg="I can now"></div>
+  <p class="fb no" id="finalmsg" hidden></p>
+
+  <h3>Reading on</h3>
+  <p>Choose your own path. Follow what interests you, stop reading anything that doesn't, and skim where you like. All of these are linked from the post.</p>
+  <div class="card">
+    <div class="trail"><strong>The day over time</strong><p>The author's International Mother Language Day posts from <a href="https://achilleaskostoulas.com/2014/02/21/international-mother-language-day/" target="_blank" rel="noopener">2014</a> and <a href="https://achilleaskostoulas.com/2019/02/21/international-mother-language-day-2019/" target="_blank" rel="noopener">2019</a>. What has changed in how he writes about the day?</p></div>
+    <div class="trail"><strong>Families</strong><p>Start with the summary <a href="https://achilleaskostoulas.com/2020/02/02/mixed-family-language-policy/" target="_blank" rel="noopener">Raising children to speak many languages</a>. If you want more, go on to the <a href="https://achilleaskostoulas.com/wp-content/uploads/2020/02/FLPPostPrint.pdf" target="_blank" rel="noopener">full article it summarises</a> (Kostoulas &amp; Motsiou, 2020).</p></div>
+    <div class="trail"><strong>Schools</strong><p>The post on <a href="https://achilleaskostoulas.com/2025/06/24/schoolscapes-arent-neutral-language-teaching-for-inclusion/" target="_blank" rel="noopener">schoolscapes</a>, linked where the post discusses language ideology.</p></div>
+    <div class="trail"><strong>Beginnings</strong><p>The post on <a href="https://achilleaskostoulas.com/2014/09/19/wild-children-first-language-acquisition/" target="_blank" rel="noopener">wild children and first language acquisition</a>.</p></div>
+    <div class="trail"><strong>What linguistics is for</strong><p>The post on <a href="https://achilleaskostoulas.com/2023/04/26/critical-linguistics/" target="_blank" rel="noopener">critical linguistics</a>, linked from footnote 6.</p></div>
+    <div class="trail"><strong>Keeping languages alive</strong><p>The <a href="https://achilleaskostoulas.com/2026/01/09/launching-localling/" target="_blank" rel="noopener">LocalLing project launch post</a>, and <a href="https://youtu.be/T3_9Xb3U1V4?t=232" target="_blank" rel="noopener">the video</a> linked where the post says communities "are determined" to keep a language alive.</p></div>
+    <div class="trail"><strong>Beyond the trails</strong><p>Find and read something for pleasure in, or about, one of the less dominant varieties in your repertoire: a story, song lyrics, a recipe, a community page.</p></div>
+  </div>
+  <p class="stuck">Tips for reading alone: start with the shortest text on your trail. If an academic article feels heavy, read the abstract, introduction and conclusion, then decide. Do not look up every unknown word.</p>
+  <div class="visitor">
+    <strong>If you are not from Greece</strong>
+    Some of the linked posts deal with Greece in detail. If one loses you, switch trails, or read it alongside something about the same topic in your own country and log both.
+  </div>
+
+  <h3>Reading log</h3>
+  <p>After each text, write three lines only.</p>
+  <div id="log"></div>
+  <button class="btn ghost small" type="button" id="addlog">Add another text</button>
+  <details class="check"><summary>Self-check</summary><div>
+    <p>There is no target number of texts. Ask yourself only two things: did I read at least one text to the end because I wanted to, and does my log contain a question I did not have before?</p>
+    <p>When you are done, enter your name under "Your work" and save your answers.</p>
+  </div></details>
+</section>
+
+<div class="pager">
+  <button class="btn ghost" id="prev" type="button">← Back</button>
+  <button class="btn" id="next" type="button">Next →</button>
+</div>
+
+</div>
+<footer>© 2026 Achilleas Kostoulas | Applied Linguistics &amp; Language Teacher Education · <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></footer>
+</main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/docx@9.5.1/dist/index.iife.js"></script>
+<script>
+const POST_URL="https://achilleaskostoulas.com/2026/02/23/international-mother-language-day-2/";
+const POST_TITLE="Every Language Is Someone's World: Reflections on International Mother Language Day 2026";
+const LICENCE="© 2026 Achilleas Kostoulas. Activities licensed under CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/). The answers are the participant's own.";
+const $=id=>document.getElementById(id);
+const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e};
+const sections=[...document.querySelectorAll('main section')];
+
+/* ---------- generated content ---------- */
+const STATEMENTS=[
+  "Everyone has one mother tongue.",
+  "A dialect is a less developed form of a language.",
+  "Most countries were monolingual until recent migration.",
+  "Being bilingual means knowing two languages equally well.",
+  "Children learn the school language faster if they stop using their home language.",
+  "Laws decide whether a language lives or dies."
+];
+STATEMENTS.forEach((s,i)=>{
+  const f=el('fieldset','item');f.dataset.rq=s;
+  f.innerHTML=`<legend>${i+1}. ${s}</legend><div class="opts">`+
+    ['Agree','Disagree','Unsure'].map(o=>`<label><input type="radio" name="b${i}" value="${o}"> ${o}</label>`).join('')+`</div>`;
+  $('beliefs').appendChild(f);
+  const d=el('div','item',`<p>${i+1}. ${s}</p><div class="mirror" id="bm${i}"></div>
+    <label for="bk${i}">I used to think… Now I think… because the post says…</label><textarea id="bk${i}"></textarea>`);
+  d.querySelector('textarea').dataset.q=`${i+1}. ${s}`;
+  $('back').appendChild(d);
+});
+
+const LANGF=[["Way of speaking","name"],["Where I learned it","where"],["Who I use it with","who"],["How it feels","feel"]];
+function addLang(){
+  const n=$('langs').children.length+1,d=el('div','item reprow');d.dataset.label=`Way of speaking ${n}`;
+  d.innerHTML=`<p class="rowhead">${n}</p><div class="fields">`+LANGF.map(([l,k])=>`<div><label for="lg${n}${k}">${l}</label><input type="text" id="lg${n}${k}" data-f="${l}" data-k="${k}"></div>`).join('')+`</div>`;
+  $('langs').appendChild(d);
+}
+for(let i=0;i<4;i++)addLang();
+$('addlang').onclick=()=>{addLang();$('langs').lastElementChild.querySelector('input').focus()};
+
+const CRITERIA=["Heritage","Early acquisition","Proficiency","Identity"];
+[["The third-generation Greek American, and Greek",true],["",false],["",false]].forEach(([name,fixed],i)=>{
+  const d=el('div','item');d.dataset.cg=name;
+  d.innerHTML=(fixed?`<p>${name}</p>`:`<label for="gn${i}" style="margin-top:0">A variety from my list</label><input type="text" id="gn${i}" data-cgname>`)+
+    `<div class="opts" style="margin-top:.5rem">`+CRITERIA.map(c=>`<label><input type="checkbox" value="${c}"> ${c}</label>`).join('')+`</div>`;
+  $('grid').appendChild(d);
+});
+
+const CASES=["Norwegian, Swedish and Danish","Mandarin and Cantonese","Serbian and Croatian","The language of North Macedonia","Greek \"dialect\" and \"idioma\""];
+CASES.forEach((c,i)=>{
+  const d=el('div','item reprow');d.dataset.label=c;
+  d.innerHTML=`<p>${c}</p><div class="fields">
+    <div><label for="c${i}a">Can speakers understand each other?</label><input type="text" id="c${i}a" data-f="Can speakers understand each other?"></div>
+    <div><label for="c${i}b">One language or several?</label><input type="text" id="c${i}b" data-f="One language or several?"></div></div>
+    <label for="c${i}c" style="font-size:.88rem;margin-top:.6rem">The post's explanation for the label</label><textarea id="c${i}c" data-f="The post's explanation for the label" style="min-height:3.6rem"></textarea>`;
+  $('cases').appendChild(d);
+});
+
+const TERMS=[
+  ["a","A newly arrived Syrian child learning Greek at school in Volos.","Second language","Greek is the dominant language of the community the child now lives in."],
+  ["b","A Greek pupil learning French at school in Larissa.","Foreign language","French has no significant social presence outside the classroom."],
+  ["c","A Greek nurse who moves to Germany and learns German there.","Second language","German is the dominant language of the community she lives in."],
+  ["d","German, learned as a pupil's third school language in Greece.","Foreign language","If you were tempted to count, reread \"not sequential; it is categorical\"."],
+  ["e","A child raised from birth with Greek and Albanian at home.","First language","Both are first languages."]
+];
+TERMS.forEach(([k,s,ans,why])=>{
+  const d=el('div','item',`<p>(${k}) ${s}</p><label for="t${k}" class="hint" style="margin:.2rem 0">Your label</label>
+    <select id="t${k}"><option value="">Choose</option><option>First language</option><option>Second language</option><option>Foreign language</option></select><p class="fb" hidden></p>`);
+  d.querySelector('select').dataset.q=`(${k}) ${s}`;
+  d.querySelector('select').onchange=()=>{d.querySelector('.fb').hidden=true};
+  $('terms').appendChild(d);
+});
+$('checkterms').onclick=()=>{
+  let blank=0;
+  TERMS.forEach(([k,,ans,why])=>{
+    const s=$('t'+k),fb=s.parentElement.querySelector('.fb');
+    if(!s.value){blank++;fb.hidden=true;return}
+    const ok=s.value===ans;fb.hidden=false;fb.className='fb '+(ok?'ok':'no');
+    fb.textContent=ok?`Yes. ${why}`:`Look again. Reread the definitions of "second" and "foreign" language in the post, then change your answer and check again.`;
+  });
+  const m=$('termsmsg');m.hidden=!blank;if(blank)m.textContent=`You have not labelled ${blank===1?'one situation':blank+' situations'} yet.`;
+};
+
+const CAN=[
+  ["I can explain why \"first language\" is harder to define than it looks.","What Even Is a \"Mother Language\"?"],
+  ["I can explain why the language/dialect distinction is political.","The Language/Dialect Problem"],
+  ["I can give one example of a \"monolingual\" society that is not.","The Myth of the Monolingual Society"],
+  ["I can tell a second language from a foreign language and describe my own repertoire.","The languages we speak"],
+  ["I can describe a setting I know in terms of ideology, management and practice.","Language Policy: Who Decides?"]
+];
+CAN.forEach(([t])=>{const l=el('label',null,`<input type="checkbox"> <span>${t}</span>`);l.querySelector('input').value=t;$('final').appendChild(l)});
+function finalMsg(){
+  const boxes=[...$('final').querySelectorAll('input')],m=$('finalmsg'),touched=boxes.some(b=>b.checked);
+  const miss=CAN.filter((c,i)=>!boxes[i].checked).map(c=>`"${c[1]}"`);
+  m.hidden=!touched;if(!touched)return;
+  m.className='fb '+(miss.length?'no':'ok');
+  m.textContent=miss.length?`For anything you could not tick, reread only that section of the post: ${miss.join(', ')}.`:'You can do all five without the post in front of you. Go on to the reading trails.';
+}
+$('final').addEventListener('change',finalMsg);
+
+const LOGF=["Text I read","One idea worth keeping","One link to my own experience or to the main post","One question I still have"];
+function addLog(){
+  const n=$('log').children.length+1,d=el('div','item reprow');d.dataset.label=`Reading log ${n}`;
+  d.innerHTML=`<p class="rowhead">Text ${n}</p>`+LOGF.map((l,j)=>`<label for="rl${n}${j}" style="font-size:.88rem;margin-top:.6rem">${l}</label>`+(j?`<textarea id="rl${n}${j}" data-f="${l}" style="min-height:3.6rem"></textarea>`:`<input type="text" id="rl${n}${j}" data-f="${l}">`)).join('');
+  $('log').appendChild(d);
+}
+addLog();
+$('addlog').onclick=()=>{addLog();$('log').lastElementChild.querySelector('input').focus()};
+
+/* ---------- navigation ---------- */
+const nav=$('nav');let part=null,current=0;
+sections.forEach((s,i)=>{
+  s.id='p'+i;
+  if(s.dataset.part&&s.dataset.part!==part){part=s.dataset.part;nav.appendChild(el('li','part',part))}
+  const li=el('li'),b=el('button',null,`<span class="dot"></span><span>${s.dataset.nav}</span>`);
+  b.type='button';b.onclick=()=>show(i,true);li.appendChild(b);nav.appendChild(li);s._btn=b;
+});
+function closeSide(){$('side').classList.remove('open');$('scrim').hidden=true;$('menu').setAttribute('aria-expanded','false')}
+$('menu').onclick=()=>{const o=$('side').classList.toggle('open');$('scrim').hidden=!o;$('menu').setAttribute('aria-expanded',o)};
+$('scrim').onclick=closeSide;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSide()});
+function show(i,move){
+  current=i;
+  sections.forEach((s,j)=>{s.hidden=j!==i;if(j===i)s._btn.setAttribute('aria-current','page');else s._btn.removeAttribute('aria-current')});
+  $('prev').hidden=i===0;$('next').hidden=i===sections.length-1;
+  $('next').textContent=i===0?'Begin →':'Next →';
+  $('where').textContent=sections[i].dataset.title;
+  mirrors();closeSide();
+  if(move){
+    history.replaceState(null,'','#'+(i+1));
+    window.scrollTo(0,0);
+    const h=sections[i].querySelector('h1,h2');h.setAttribute('tabindex','-1');h.focus({preventScroll:true});
+  }
+}
+$('prev').onclick=()=>show(current-1,true);
+$('next').onclick=()=>show(current+1,true);
+
+/* ---------- carrying answers forward ---------- */
+function mirrors(){
+  const names=[...$('langs').querySelectorAll('[data-k=name]')].map(e=>e.value.trim()).filter(Boolean);
+  document.querySelectorAll('[data-mirror=langs]').forEach(m=>{m.innerHTML=names.length?`<b>Your list from Activity 1:</b> ${esc(names.join(', '))}`:'Your list from Activity 1 will appear here once you have filled it in.'});
+  const w=$('w1').value.trim(),who=$('w2').value.trim();
+  document.querySelectorAll('[data-mirror=word]').forEach(m=>{m.innerHTML=w?`<b>Your word:</b> ${esc(w)}${who?` <span>(heard from ${esc(who)})</span>`:''}`:'You have not entered a word in the warm-up yet.'});
+  STATEMENTS.forEach((s,i)=>{const c=document.querySelector(`input[name=b${i}]:checked`);$('bm'+i).innerHTML=c?`<b>Before reading, you said:</b> ${c.value}`:'You did not mark this statement in Activity 2.'});
+}
+function esc(t){return t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+const words=t=>(t.trim().match(/\S+/g)||[]).length;
+$('a9w').addEventListener('input',e=>{const n=words(e.target.value);$('a9wc').textContent=`${n} ${n===1?'word':'words'}`});
+
+/* ---------- collecting answers ---------- */
+function collectSection(s){
+  const items=[];
+  s.querySelectorAll('[data-q],[data-rq],.reprow,[data-cg]').forEach(e=>{
+    if(e.matches('[data-rq]')){const c=e.querySelector('input:checked');if(c)items.push({q:e.dataset.rq,a:c.value})}
+    else if(e.matches('.reprow')){
+      const lines=[...e.querySelectorAll('[data-f]')].filter(f=>f.value.trim()).map(f=>`${f.dataset.f}: ${f.value.trim()}`);
+      if(lines.length)items.push({q:e.dataset.label,a:lines.join('\n')});
+    }
+    else if(e.matches('[data-cg]')){
+      const nm=e.querySelector('[data-cgname]'),label=nm?nm.value.trim():e.dataset.cg;
+      const t=[...e.querySelectorAll('input[type=checkbox]:checked')].map(c=>c.value);
+      if(t.length||(nm&&label))items.push({q:label||'A variety from my list',a:t.length?t.join(e.id==='final'?'\n':'; '):'No criteria ticked'});
+    }
+    else if(e.value.trim())items.push({q:e.dataset.q,a:e.value.trim()});
+  });
+  return items;
+}
+function collect(){return sections.map(s=>({title:s.dataset.title,items:collectSection(s)})).filter(d=>d.items.length)}
+function refresh(){sections.forEach(s=>s._btn.parentElement.classList.toggle('done',collectSection(s).length>0))}
+document.addEventListener('input',refresh);document.addEventListener('change',()=>{refresh();mirrors()});
+window.addEventListener('beforeunload',e=>{if(collect().length){e.preventDefault();e.returnValue=''}});
+
+/* ---------- export ---------- */
+const name=()=>$('pname').value.trim();
+const today=()=>new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+const fname=ext=>`every-language-${(name()||'my-responses').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'')}.${ext}`;
+const say=t=>{$('status').textContent=t};
+function asText(data){
+  return `Every Language Is Someone's World: my responses\n${name()?`Name: ${name()}\n`:''}Date: ${today()}\nBased on: Kostoulas, A. (2026). ${POST_TITLE}. ${POST_URL}\n\n`+
+    data.map(d=>`${d.title.toUpperCase()}\n\n`+d.items.map(it=>`${it.q}\n${it.a}`).join('\n\n')).join('\n\n----------\n\n')+`\n\n----------\n${LICENCE}\n`;
+}
+function download(blob,filename){
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
+function ready(){const d=collect();if(!d.length)say('Write something in at least one activity first.');return d.length?d:null}
+
+async function wordBlob(data){
+  const D=window.docx,{Document,Packer,Paragraph,TextRun,HeadingLevel,ExternalHyperlink}=D;
+  const body=(t,opt={})=>new Paragraph({spacing:{after:160},...opt.p,children:t.split('\n').map((l,i)=>new TextRun({text:l,break:i?1:0,...opt.r}))});
+  const kids=[
+    new Paragraph({heading:HeadingLevel.TITLE,children:[new TextRun("Every Language Is Someone's World")]}),
+    new Paragraph({spacing:{after:200},children:[new TextRun({text:'My responses',size:28,color:'5A6673'})]}),
+    body((name()?`Name: ${name()}\n`:'')+`Date: ${today()}`),
+    new Paragraph({spacing:{after:320},children:[new TextRun({text:'Based on: Kostoulas, A. (2026). ',size:18}),
+      new ExternalHyperlink({link:POST_URL,children:[new TextRun({text:POST_TITLE,italics:true,size:18,style:'Hyperlink'})]}),new TextRun({text:'.',size:18})]})
+  ];
+  data.forEach(d=>{
+    kids.push(new Paragraph({heading:HeadingLevel.HEADING_1,spacing:{before:360,after:160},children:[new TextRun(d.title)]}));
+    d.items.forEach(it=>{kids.push(body(it.q,{p:{spacing:{after:60},keepNext:true},r:{bold:true}}));kids.push(body(it.a))});
+  });
+  kids.push(new Paragraph({spacing:{before:480},children:[new TextRun({text:LICENCE,size:16,color:'5A6673'})]}));
+  const doc=new Document({creator:name()||'Participant',title:"Every Language Is Someone's World: my responses",
+    styles:{default:{document:{run:{font:'Calibri',size:22}}}},
+    sections:[{properties:{page:{margin:{top:1134,bottom:1134,left:1134,right:1134}}},children:kids}]});
+  return Packer.toBlob(doc);
+}
+function wordFallback(data){
+  const h=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>My responses</title>
+<style>body{font-family:Calibri,sans-serif;font-size:11pt}h1{font-size:20pt}h2{font-size:14pt;color:#2E6B5E;margin-top:18pt}p.q{font-weight:bold;margin-bottom:2pt}p.s{font-size:8pt;color:#5A6673}</style></head><body>
+<h1>Every Language Is Someone's World</h1><p>My responses</p><p>${name()?`Name: ${esc(name())}<br>`:''}Date: ${today()}</p>
+<p class="s">Based on: Kostoulas, A. (2026). <a href="${POST_URL}"><i>${esc(POST_TITLE)}</i></a>.</p>`+
+  data.map(d=>`<h2>${esc(d.title)}</h2>`+d.items.map(it=>`<p class="q">${esc(it.q)}</p><p>${esc(it.a).replace(/\n/g,'<br>')}</p>`).join('')).join('')+
+  `<p class="s">${esc(LICENCE)}</p></body></html>`;
+  return new Blob(['﻿',h],{type:'application/msword'});
+}
+$('word').onclick=async()=>{
+  const data=ready();if(!data)return;
+  say('Preparing your document…');
+  try{
+    if(!window.docx)throw 0;
+    download(await wordBlob(data),fname('docx'));say('Word document saved.');
+  }catch(e){
+    download(wordFallback(data),fname('doc'));say('Saved in a simpler Word format, because the document tool could not load.');
+  }
+};
+$('txt').onclick=()=>{const data=ready();if(!data)return;download(new Blob([asText(data)],{type:'text/plain;charset=utf-8'}),fname('txt'));say('Text file saved.')};
+$('copy').onclick=async()=>{
+  const data=ready();if(!data)return;
+  try{await navigator.clipboard.writeText(asText(data));say('Copied. Paste it wherever you need it.')}
+  catch(e){say('Copying is not available here. Save a file instead.')}
+};
+let armed=null;
+$('clear').onclick=()=>{
+  const b=$('clear');
+  if(!armed){b.textContent='Click again to erase all answers';armed=setTimeout(()=>{armed=null;b.textContent='Clear everything'},5000);return}
+  clearTimeout(armed);armed=null;b.textContent='Clear everything';
+  document.querySelectorAll('textarea,input[type=text]').forEach(e=>e.value='');
+  document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(e=>e.checked=false);
+  document.querySelectorAll('select').forEach(e=>e.selectedIndex=0);
+  document.querySelectorAll('.fb').forEach(e=>e.hidden=true);
+  $('a9wc').textContent='0 words';refresh();mirrors();say('All answers cleared.');
+};
+
+const start=parseInt(location.hash.slice(1),10);
+show(start>=1&&start<=sections.length?start-1:0,false);refresh();
+</script>
+</body>
+</html>
