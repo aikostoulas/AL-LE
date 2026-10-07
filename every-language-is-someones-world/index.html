@@ -272,8 +272,6 @@ legend{font-weight:600;font-size:.95rem;margin-bottom:.3rem;padding:0}
   <div class="visitor">
     <strong>If you are not from Greece</strong>
     Take your case from your home country.
-    <label for="a4v">Is there a word there that does the job "idioma" does in Greece: a label that avoids calling something a dialect or a language?</label>
-    <textarea id="a4v" data-q="A label like 'idioma' in my home country"></textarea>
   </div>
   <details class="check"><summary>Self-check</summary><div>
     <p>Your notes should show intelligibility and labels pulling in opposite directions in at least two cases. If they do, you have found the section's argument.</p>
@@ -524,7 +522,7 @@ const CRITERIA=["Heritage","Early acquisition","Proficiency","Identity"];
   $('grid').appendChild(d);
 });
 
-const CASES=["Norwegian, Swedish and Danish","Mandarin and Cantonese","Serbian and Croatian","The language of North Macedonia","Greek \"dialect\" and \"idioma\""];
+const CASES=["Norwegian, Swedish and Danish","Mandarin and Cantonese","Serbian and Croatian"];
 CASES.forEach((c,i)=>{
   const d=el('div','item reprow');d.dataset.label=c;
   d.innerHTML=`<p>${c}</p><div class="fields">
