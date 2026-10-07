@@ -33,7 +33,7 @@ A final tab gathers everything the participant has written, which they can copy 
 
 The resource is designed for individual preparation before a shared discussion, not as a replacement for one. Activities 2 and 6 in particular are built to produce disagreement, and that disagreement has to happen somewhere else: a seminar, a forum, a shared document. Asking participants to post their copied text into a course forum is the simplest way to make that happen.
 
-### Every Language Is Someone's World
+### Independent learning unit: Language, multilingualism and language policy
 
 Self-study activities based on the post [Every Language Is Someone's World: Reflections on International Mother Language Day 2026](https://achilleaskostoulas.com/2026/02/23/international-mother-language-day-2/). Each activity has its own page, reached from a contents list in the sidebar:
 
@@ -43,6 +43,8 @@ Self-study activities based on the post [Every Language Is Someone's World: Refl
 - **Activities 3 to 8** (while reading): one per section of the post, covering first-language criteria, language and dialect, the monolingual myth, second and foreign languages and repertoires, the three dimensions of language policy, and deficit versus resource framings.
 - **Activity 9** (after reading): the six statements revisited, and a short written response.
 - **Closing reflection**, then a final page with a **self-assessment** checklist, **reading trails** to linked texts and a **reading log**.
+
+Readers choose one of two routes on the opening page. The **core route** (approximately 60–90 minutes) covers Activities 2, 3, 4, 6, 7 and 9 and the self-assessment; the **full route** (approximately 3.5 hours) covers everything. The contents list and the Back and Next buttons follow the chosen route, which can be changed at any time without losing answers.
 
 The resource is written for readers working without a tutor. Every activity ends with a collapsible self-check, Activity 6 checks its own answers, and earlier answers (the warm-up word, the language list, the six statements) reappear where later activities build on them. Boxes headed "If you are not from Greece" give visiting students, such as Erasmus students, a way into the Greek examples.
 
@@ -56,7 +58,7 @@ The pages store nothing. There is no server, no database, no analytics, no cooki
 
 The PDF is generated in the participant's own browser using [pdfmake](https://pdfmake.github.io/docs/), loaded from the jsDelivr CDN. That request carries nothing the participant has typed. If the library fails to load, the page says so and directs participants to the copy option instead. To remove the external request entirely, download `pdfmake.min.js` and `vfs_fonts.js` into the resource's folder and change the two `<script src>` tags in its `index.html` to point at the local copies.
 
-The Word document in *Every Language Is Someone's World* is generated in the same way using [docx](https://docx.js.org/), also loaded from jsDelivr. If that library fails to load, the page saves a simpler Word-compatible file instead, so export still works offline.
+The Word document in the independent learning unit is generated in the same way using [docx](https://docx.js.org/), also loaded from jsDelivr. If that library fails to load, the page saves a simpler Word-compatible file instead, so export still works offline.
 
 ## Hosting
 
