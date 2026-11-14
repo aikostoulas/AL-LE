@@ -10,6 +10,8 @@ what-is-applied-linguistics/
   index.html                      the workbench for that post
 every-language-is-someones-world/
   index.html                      self-study activities for that post
+reflecting-in-action/
+  index.html                      guided reflective cycle for the practicum
 ```
 
 Each resource lives in its own folder with an `index.html` inside it, so it is served at a clean address such as `/AL-LE/what-is-applied-linguistics/` and can carry its own images or local copies of libraries without colliding with anything else. To add a resource, create a folder, put its `index.html` inside, and add an `<article>` block to the root `index.html`.
@@ -52,9 +54,30 @@ The sidebar also holds the name field and the export options: a Word document, a
 
 This resource is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 
+### Reflecting in Action
+
+A guided reflective cycle for student teachers on the teaching practicum, based on a modified version of the framework in Gibbs, G. (1988/2013). *Learning by doing: a guide to teaching and learning methods*. OSCLD. Students work through six stages for one lesson, activity or moment they taught:
+
+1. **Description of action**
+2. **Affective, behavioural and cognitive responses**
+3. **Evaluation**
+4. **Analysis**
+5. **Conclusions**, including what the experience taught them about multilingual learners and learners with a migrant or refugee background
+6. **Action plan**
+
+The stages are drawn as a clickable wheel that shows which stages are complete. Each stage has its guiding questions, a tip where useful, and a collapsible set of *If… then* prompts for when the student is stuck or wants to go further. Several of these prompts steer away from deficit framings of learners and from grammar-only evidence of success.
+
+Each student writes six numbered reflections over the practicum. The top of the page holds their name, semester and the reflection number. A review screen gathers the reflection, and the student exports it as a PDF headed with their name, semester, reflection number and date, or copies it as text.
+
+The PDF is generated in the browser with [jsPDF](https://github.com/parallax/jsPDF), which is bundled into the page along with a subset of the DejaVu Sans font (Latin, Greek and Cyrillic). The page makes no external requests, so PDF export also works offline.
+
 ## Privacy
 
-The pages store nothing. There is no server, no database, no analytics, no cookies and no browser storage. Answers exist only in the open tab and are lost on reload, which the page states clearly at the top. Participants keep their work by copying it or saving the PDF.
+No page sends anything anywhere. There is no server, no database, no analytics and no cookies.
+
+The first two resources also use no browser storage: answers exist only in the open tab and are lost on reload, which each page states clearly at the top. Participants keep their work by copying it or saving the PDF.
+
+Reflecting in Action is the exception, because the six reflections are written over several weeks. It keeps drafts in the browser's local storage, on the participant's own device, and the page says so at the top. Drafts are lost if the participant clears their browser data or changes device, so the page also lets them save a progress file (JSON) and load it again later on any device. The file is read in the browser and is not uploaded anywhere.
 
 The PDF is generated in the participant's own browser using [pdfmake](https://pdfmake.github.io/docs/), loaded from the jsDelivr CDN. That request carries nothing the participant has typed. If the library fails to load, the page says so and directs participants to the copy option instead. To remove the external request entirely, download `pdfmake.min.js` and `vfs_fonts.js` into the resource's folder and change the two `<script src>` tags in its `index.html` to point at the local copies.
 
